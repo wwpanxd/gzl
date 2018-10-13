@@ -31,7 +31,7 @@
                     <div>
                         <span><img alt="image" class="img-circle" height="60" width="60" th:src="${picUrl}"/></span>
                         <h3 class="" style="color: #ffffff">
-                            </i>BootDo后台管理系统
+                           </i>西山煤电劳资管理系统
                         </h3>
                     </div>
                     <div class="dropdown profile-element hidden">
@@ -50,13 +50,11 @@
                             </li>
                             <li><a @click="personal" href="#">密码修改</a>
                             </li>
-                            <li><a @click="personal" href="#">信箱</a>
-                            </li>
                             <li class="divider"></li>
                             <li><a href="/logout">安全退出</a>
                             </li>
                         </ul>
-                        <div class="logo-element">BootDo</div>
+                        <div class="logo-element">logo</div>
                     </div>
                 </li>
                 <li><a href="#"> <i class="fa fa-home"></i> <span
@@ -64,7 +62,7 @@
                 </a>
                     <ul class="nav nav-second-level">
                         <li><a id="index001" class="J_menuItem" href="index_v1.html"
-                               data-index="0" th:href="@{/main}">了解BootDo</a></li>
+                               data-index="0" th:href="@{/main}">西山煤电</a></li>
                     </ul>
                 </li>
                 <li th:each="menu : ${menus}"><a href="#"> <i
@@ -100,44 +98,16 @@
                     </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="hidden-xs"><a href="/blog" target="_Blank"
-                                             class=""><i class="fa fa-rss-square"></i>博客</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle count-info"
-                                            data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
-                        <span class="label label-warning">{{total}}</span>通知
-                    </a>
-                        <ul class="dropdown-menu dropdown-messages">
-                            <li v-for="row in rows" class="m-t-xs">
-                                <div class="dropdown-messages-box">
-                                    <a class="pull-left"> <i
-                                            class="fa fa-server"></i>
-                                    </a>
-                                    <div class="media-body">
-                                        <small class="pull-right">{{row.before}}</small>
-                                        <strong>{{row.sender}}</strong>
-                                        {{row.title}} <br>
-                                        <small class="text-muted">{{row.updateDate}}</small>
-                                    </div>
-                                </div>
-                                <div class="divider"></div>
-                            </li>
-                            <li>
-                                <div class="text-center link-block">
-                                    <a class="J_menuItem" href="/oa/notify/selfNotify"> <i
-                                            class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="hidden-xs"><a @click="personal" href="#" ><i class="fa fa-id-card"></i> 个人</a></li>
-                    <li class="dropdown hidden-xs"><a
-                            class="right-sidebar-toggle" aria-expanded="false"> <i
-                            class="fa fa-tasks"></i> 主题
-                    </a></li>
+<!--                     <li class="dropdown hidden-xs"><a -->
+<!--                             class="right-sidebar-toggle" aria-expanded="false"> <i -->
+<!--                             class="fa fa-tasks"></i> 主题 -->
+<!--                     </a></li> -->
+   			<li class="hidden-xs"><a href="/logout" ><i class="fa fa fa-sign-out"></i> 退出</a></li>
                 </ul>
             </nav>
         </div>
+        
         <div class="row content-tabs">
             <button class="roll-nav roll-left J_tabLeft">
                 <i class="fa fa-backward"></i>
@@ -162,16 +132,17 @@
                     <li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
                 </ul>
             </div>
-            <a href="/logout" class="roll-nav roll-right J_tabExit"><i
-                    class="fa fa fa-sign-out"></i> 退出</a>
+<!--             <a href="/logout" class="roll-nav roll-right J_tabExit"><i -->
+<!--                     class="fa fa fa-sign-out"></i> 退出</a> -->
         </div>
+        
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%"
                     src="" th:src="@{/main}" frameborder="0" data-id="index_v1.html"
                     seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">BootDo面向学习型的开源框架</div>
+            <div class="pull-right">山西焦煤西山煤电集团劳动工资管理系统</div>
         </div>
     </div>
     <!--右侧部分结束-->
