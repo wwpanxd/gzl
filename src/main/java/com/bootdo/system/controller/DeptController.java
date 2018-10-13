@@ -3,8 +3,11 @@ package com.bootdo.system.controller;
 import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.domain.Tree;
+import com.bootdo.common.utils.PageUtils;
+import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 import com.bootdo.system.domain.DeptDO;
+import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.DeptService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -42,10 +45,16 @@ public class DeptController extends BaseController {
 	@ResponseBody
 	@GetMapping("/list")
 	@RequiresPermissions("system:sysDept:sysDept")
-	public List<DeptDO> list() {
-		Map<String, Object> query = new HashMap<>(16);
-		List<DeptDO> sysDeptList = sysDeptService.list(query);
-		return sysDeptList;
+//	public List<DeptDO> list() {
+//		Map<String, Object> query = new HashMap<>(16);
+//		List<DeptDO> sysDeptList = sysDeptService.list(query);
+//		return sysDeptList;
+//	}
+	public List<DeptDO> list(@RequestParam Map<String, Object> params) {
+		// 查询列表数据
+		Query query = new Query(params);
+		List<DeptDO> sysUserList = sysDeptService.list(query);
+		return sysUserList;
 	}
 
 	@GetMapping("/add/{pId}")

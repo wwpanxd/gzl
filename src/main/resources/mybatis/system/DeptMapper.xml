@@ -10,12 +10,13 @@
 	</select>
 
 	<select id="list" resultType="com.bootdo.system.domain.DeptDO">
+	<bind name="name_like" value="'%' + _parameter.name + '%'" /> 
 		select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from
 		sys_dept
 		<where>
 			<if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
 			<if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
-			<if test="name != null and name != ''"> and name = #{name} </if>
+			<if test="name != null and name != ''"> and name LIKE #{name_like} </if>
 			<if test="orderNum != null and orderNum != ''"> and order_num = #{orderNum} </if>
 			<if test="delFlag != null and delFlag != ''"> and del_flag = #{delFlag} </if>
 		</where>
@@ -32,7 +33,8 @@
 		</if>
 	</select>
 
-	<select id="count" resultType="int">
+	<select id="count" resultType="int" >
+	
 		select count(*) from sys_dept
 		<where>
 			<if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
