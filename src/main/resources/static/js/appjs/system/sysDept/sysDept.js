@@ -35,7 +35,14 @@ function load() {
 					},
 					{
 						field : 'name',
-						title : '部门名称',
+						title : '单位名称',
+                        valign : 'center',
+						witth :20
+					},
+					{
+						field : 'sname',
+						title : '单位简称',
+						align : 'center',
                         valign : 'center',
 						witth :20
 					},

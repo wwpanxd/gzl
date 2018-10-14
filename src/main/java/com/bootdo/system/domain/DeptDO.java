@@ -20,6 +20,8 @@ public class DeptDO implements Serializable {
 	private Long parentId;
 	//部门名称
 	private String name;
+	//部门简称
+	private String sname;
 	//排序
 	private Integer orderNum;
 	//是否删除  -1：已删除  0：正常
@@ -86,14 +88,27 @@ public class DeptDO implements Serializable {
 		return delFlag;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "DeptDO{" +
+//				"deptId=" + deptId +
+//				", parentId=" + parentId +
+//				", name='" + name + '\'' +
+//				", orderNum=" + orderNum +
+//				", delFlag=" + delFlag +
+//				'}';
+//	}
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
 	@Override
 	public String toString() {
-		return "DeptDO{" +
-				"deptId=" + deptId +
-				", parentId=" + parentId +
-				", name='" + name + '\'' +
-				", orderNum=" + orderNum +
-				", delFlag=" + delFlag +
-				'}';
+		return "DeptDO [deptId=" + deptId + ", parentId=" + parentId + ", name=" + name + ", sname=" + sname
+				+ ", orderNum=" + orderNum + ", delFlag=" + delFlag + "]";
 	}
+
+	
 }
