@@ -88,27 +88,28 @@ public class DeptDO implements Serializable {
 		return delFlag;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "DeptDO{" +
-//				"deptId=" + deptId +
-//				", parentId=" + parentId +
-//				", name='" + name + '\'' +
-//				", orderNum=" + orderNum +
-//				", delFlag=" + delFlag +
-//				'}';
-//	}
+	@Override
+	public String toString() {
+		return "DeptDO{" +
+				"deptId=" + deptId +
+				", parentId=" + parentId +
+				", name='" + name + '\'' +
+				", sname='" + sname + '\'' +
+				", orderNum=" + orderNum +
+				", delFlag=" + delFlag +
+				'}';
+	}
 	public String getSname() {
 		return sname;
 	}
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
-	@Override
-	public String toString() {
-		return "DeptDO [deptId=" + deptId + ", parentId=" + parentId + ", name=" + name + ", sname=" + sname
-				+ ", orderNum=" + orderNum + ", delFlag=" + delFlag + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "DeptDO [deptId=" + deptId + ", parentId=" + parentId + ", name=" + name + ", sname=" + sname
+//				+ ", orderNum=" + orderNum + ", delFlag=" + delFlag + "]";
+//	}
 
 	
 }
