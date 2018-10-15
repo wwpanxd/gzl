@@ -1,18 +1,21 @@
 $().ready(function() {
-	//loadType();
 	validateRule();
+
+	laydate({
+        elem : '#renderdate'
+    });
 });
 
 $.validator.setDefaults({
 	submitHandler : function() {
-		update();
+		save();
 	}
 });
-function update() {
+function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/oa/notify/update",
+		url : "/system/labourreportmain/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -37,38 +40,20 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			name : {
+			renderdepart : {
+				required : true
+			},
+			renderdate : {
 				required : true
 			}
 		},
 		messages : {
-			name : {
-				required : icon + "请输入名字"
+			renderdepart : {
+				required : icon + "请输入填报单位"
+			},
+			renderdate : {
+				required : icon + "请输入汇报年月"
 			}
 		}
 	})
 }
-
-function loadType(){
-	var html = "";
-	$.ajax({
-		url : '/common/dict/list/oa_notify_type',
-		success : function(data) {
-			// 加载数据
-			for (var i = 0; i < data.length; i++) {
-				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
-			}
-			$(".chosen-select").append(html);
-			$(".chosen-select").chosen({
-				maxHeight : 200
-			});
-			$(".chosen-select").val($("#Ttype").val());
-			$(".chosen-select").trigger("chosen:updated");
-			// 点击事件
-			$('.chosen-select').on('change', function(e, params) {
-				
-			});
-		}
-	});
-}
-
