@@ -54,12 +54,12 @@ function load(deptId) {
 						title : '序号' // 列标题
 					},
 					{
-						field : 'name',
-						title : '人员姓名'
-					},
-					{
 						field : 'username',
 						title : '用户名'
+					},
+					{
+						field : 'name',
+						title : '人员姓名'
 					},
 //					{
 //						field : 'email',

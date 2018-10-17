@@ -7,13 +7,16 @@ $.validator.setDefaults({
 		save();
 	}
 });
-$('pd_checkbox').on('ifChecked', function(event){ 
-	 alert(event.type + ' callback'); 
-	 $("#password").val("123456");
-	});
-$('pd_checkbox').on('ifUnchecked', function(event){ 
-	$("#password").val("");
-	});
+$("#pd_checkbox").on("change",function(){
+    if ($("#pd_checkbox").is(':checked')) {
+   	 $("#password").val("123456");
+   	 $("#password").attr("readonly","readonly");
+    }else{
+  	 $("#password").val("");
+  	 $("#password").removeAttr("readonly");
+    }
+  });
+
 function getCheckedRoles() {
 	var adIds = "";
 	$("input:checkbox[name=role]:checked").each(function(i) {
