@@ -55,16 +55,16 @@ function load(deptId) {
 					},
 					{
 						field : 'name',
-						title : '姓名'
+						title : '人员姓名'
 					},
 					{
 						field : 'username',
 						title : '用户名'
 					},
-					{
-						field : 'email',
-						title : '邮箱'
-					},
+//					{
+//						field : 'email',
+//						title : '邮箱'
+//					},
 					{
 						field : 'status',
 						title : '状态',

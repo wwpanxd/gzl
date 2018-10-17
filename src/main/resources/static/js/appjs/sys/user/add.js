@@ -7,6 +7,13 @@ $.validator.setDefaults({
 		save();
 	}
 });
+$('pd_checkbox').on('ifChecked', function(event){ 
+	 alert(event.type + ' callback'); 
+	 $("#password").val("123456");
+	});
+$('pd_checkbox').on('ifUnchecked', function(event){ 
+	$("#password").val("");
+	});
 function getCheckedRoles() {
 	var adIds = "";
 	$("input:checkbox[name=role]:checked").each(function(i) {
@@ -74,10 +81,10 @@ function validateRule() {
 				minlength : 6,
 				equalTo : "#password"
 			},
-			email : {
-				required : true,
-				email : true
-			},
+//			email : {
+//				required : true,
+//				email : true
+//			},
 			topic : {
 				required : "#newsletter:checked",
 				minlength : 2
@@ -103,7 +110,7 @@ function validateRule() {
 				minlength : icon + "密码必须6个字符以上",
 				equalTo : icon + "两次输入的密码不一致"
 			},
-			email : icon + "请输入您的E-mail",
+//			email : icon + "请输入您的E-mail",
 		}
 	})
 }
@@ -120,3 +127,4 @@ function loadDept( deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
 }
+
