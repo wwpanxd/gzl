@@ -14,6 +14,7 @@ public class UserDO implements Serializable {
     private String username;
     // 用户真实姓名
     private String name;
+    private Long staffId;
     // 密码
     private String password;
     // 部门
@@ -21,16 +22,12 @@ public class UserDO implements Serializable {
     private String deptName;
     // 邮箱
     private String email;
-    // 手机号
-    private String mobile;
     // 状态 0:禁用，1:正常
     private Integer status;
     // 创建用户id
-    private Long userIdCreate;
+    private Date userIdCreate;
     // 创建时间
-    private Date gmtCreate;
-    // 修改时间
-    private Date gmtModified;
+    private Date userIdModified;
     //角色
     private List<Long> roleIds;
     //性别
@@ -107,44 +104,12 @@ public class UserDO implements Serializable {
         this.email = email;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
     public Integer getStatus() {
         return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public Long getUserIdCreate() {
-        return userIdCreate;
-    }
-
-    public void setUserIdCreate(Long userIdCreate) {
-        this.userIdCreate = userIdCreate;
-    }
-
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
     }
 
     public List<Long> getRoleIds() {
@@ -219,30 +184,28 @@ public class UserDO implements Serializable {
         this.district = district;
     }
 
-    @Override
-    public String toString() {
-        return "UserDO{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", deptId=" + deptId +
-                ", deptName='" + deptName + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", status=" + status +
-                ", userIdCreate=" + userIdCreate +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
-                ", roleIds=" + roleIds +
-                ", sex=" + sex +
-                ", birth=" + birth +
-                ", picId=" + picId +
-                ", liveAddress='" + liveAddress + '\'' +
-                ", hobby='" + hobby + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", district='" + district + '\'' +
-                '}';
-    }
+
+	public Date getUserIdModified() {
+		return userIdModified;
+	}
+
+	public void setUserIdModified(Date userIdModified) {
+		this.userIdModified = userIdModified;
+	}
+
+	public Date getUserIdCreate() {
+		return userIdCreate;
+	}
+
+	public void setUserIdCreate(Date userIdCreate) {
+		this.userIdCreate = userIdCreate;
+	}
+
+	public Long getStaffId() {
+		return staffId;
+	}
+
+	public void setStaffId(Long staffId) {
+		this.staffId = staffId;
+	}
 }

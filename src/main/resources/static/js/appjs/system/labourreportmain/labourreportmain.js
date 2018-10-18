@@ -192,6 +192,11 @@ function load() {
 												+ '" href="#" title="报表"  mce_href="#" onclick="reportfunc(\''
 												+ curUrl
 												+ '\')"><i class="fa fa fa-tasks"></i></a> ';
+										var d = '<a class="btn btn-warning btn-sm '
+											+ s_remove_h
+											+ '" href="#" title="提交"  mce_href="#" onclick="submitinfo(\''
+											+ row.oid
+											+ '\',\''+row.code+'\')"><i class="fa fa-remove"></i></a> ';
 										return e + d + g;
 									}
 								} ]
@@ -290,4 +295,14 @@ function batchRemove() {
 	}, function() {
 
 	});
+}
+function submitinfo(){
+	/*layer.open({
+		type : 2,
+		title : '提交',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/sumitinfo/' + id // iframe的url
+	});*/
 }
