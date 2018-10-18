@@ -9,11 +9,11 @@
 	</select>
 
 	<select id="list" resultType="com.bootdo.system.domain.UserRoleDO">
-		select `id`,`user_id`,`role_id` from sys_user_role
+		select a.`id`,a.`user_id`,b.`name`,b.`username` from sys_user_role a left join sys_user b on a.user_id=b.user_id
 		<where>
-			<if test="id != null and id != ''"> and id = #{id} </if>
-			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-			<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>
+			<if test="userId != null and userId != ''"> and a.user_id = #{userId} </if>
+			<if test="roleId != null and roleId != ''"> and a.role_id = #{roleId} </if>
+			<if test="name != null and name != ''"> and b.name LIKE '%${name}%' </if>
 		</where>
 		<choose>
 			<when test="sort != null and sort.trim() != ''">

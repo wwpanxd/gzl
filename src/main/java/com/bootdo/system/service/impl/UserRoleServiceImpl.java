@@ -27,6 +27,18 @@ public class UserRoleServiceImpl implements UserRoleService{
 		// TODO Auto-generated method stub
 		return userRoleMapper.removeByUserId(userId);
 	}
+
+	@Override
+	public int remove(Long id) {
+		// TODO Auto-generated method stub
+		return userRoleMapper.remove(id);
+	}
+
+	@Override
+	public int removeByRoleId(Long roleId) {
+		// TODO Auto-generated method stub
+		return userRoleMapper.removeByRoleId(roleId);
+	}
     
     
 }

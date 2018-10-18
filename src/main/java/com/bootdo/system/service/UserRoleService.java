@@ -20,15 +20,15 @@ public interface UserRoleService {
 //
 //	int update(UserRoleDO userRole);
 //
-//	int remove(Long id);
+	int remove(Long id);
 //
 //	int batchRemove(Long[] ids);
 //
 //	List<Long> listRoleId(Long userId);
 
 	int removeByUserId(Long userId);
-//
-//	int removeByRoleId(Long roleId);
+
+	int removeByRoleId(Long roleId);
 //
 //	int batchSave(List<UserRoleDO> list);
 //
