@@ -3,6 +3,7 @@ package com.bootdo.system.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 import com.bootdo.common.utils.StringUtils;
 import com.bootdo.system.domain.LabourreportmainDO;
+import com.bootdo.system.domain.LabourrepotapproveDO;
 import com.bootdo.system.service.LabourreportmainService;
+import com.bootdo.system.service.LabourrepotapproveService;
 
 /**
  * 
@@ -36,6 +39,8 @@ import com.bootdo.system.service.LabourreportmainService;
 public class LabourreportmainController extends BaseController {
 	@Autowired
 	private LabourreportmainService labourreportmainService;
+	@Autowired
+	private LabourrepotapproveService labourrepotapproveService;
 
 	@GetMapping()
 	@RequiresPermissions("system:labourreportmain:labourreportmain")
@@ -135,4 +140,43 @@ public class LabourreportmainController extends BaseController {
 		return R.ok();
 	}
 
+	@GetMapping("/sumitinfo")
+	@RequiresPermissions("system:labourreportmain:sumitinfo")
+	public String sumitinfo(String oid, Model model) {
+		model.addAttribute("foid", oid);
+		return "system/labourreportmain/sumitinfo";
+	}
+	
+	@GetMapping("/approveopt")
+	@RequiresPermissions("system:labourreportmain:sumitinfo")
+	public String approveopt(String oid, Model model) {
+		model.addAttribute("foid", oid);
+		return "system/labourreportmain/approve";
+	}
+
+	@ResponseBody
+	@PostMapping("/saveapprove")
+	@RequiresPermissions("system:labourreportmain:sumitinfo")
+	public R saveapprove(String oid, Integer status, String remark, Model model) {
+		LabourreportmainDO labourreportmain = new LabourreportmainDO();
+		labourreportmain.setOid(oid);
+		labourreportmain.setStatus(status);
+		int result = labourreportmainService.update(labourreportmain);
+		if (result > 0) {
+			Long uid = getUserId();
+			String pkey = UUID.randomUUID().toString().replace("-", "");
+			;
+			LabourrepotapproveDO labourrepotapprove = new LabourrepotapproveDO();
+			labourrepotapprove.setOid(pkey);
+			labourrepotapprove.setFoid(oid);
+			labourrepotapprove.setContent(remark);
+			labourrepotapprove.setStatus(status);
+			labourrepotapprove.setUptuser(uid.toString());
+			result = labourrepotapproveService.save(labourrepotapprove);
+			if (result > 0) {
+				return R.ok();
+			}
+		}
+		return R.error();
+	}
 }

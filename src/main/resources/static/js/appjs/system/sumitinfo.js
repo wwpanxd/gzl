@@ -4,14 +4,14 @@ $().ready(function() {
 
 $.validator.setDefaults({
 	submitHandler : function() {
-		update();
+		save();
 	}
 });
-function update() {
+function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/system/labourreportmain/update",
+		url : "/system/labourreportmain/saveapprove",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -36,19 +36,13 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			renderdepart : {
-				required : true
-			},
-			renderdate : {
+			remark : {
 				required : true
 			}
 		},
 		messages : {
-			renderdepart : {
-				required : icon + "请输入单位名称"
-			},
-			renderdate : {
-				required : icon + "请输入汇报年月"
+			remark : {
+				required : icon + "请输入意见"
 			}
 		}
 	})

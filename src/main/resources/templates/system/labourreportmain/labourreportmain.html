@@ -54,6 +54,8 @@
 			var s_edit_h = 'hidden';
 			var s_remove_h = 'hidden';
 			var s_detail_h = 'hidden';
+			var s_sumitinfo_h = 'hidden';
+			var s_suggest_h = 'hidden';
 		</script>
 	</div>
 	<div shiro:hasPermission="system:labourreportmain:edit">
@@ -69,6 +71,16 @@
 	<div shiro:hasPermission="system:labourreportmain:detail">
 		<script type="text/javascript">
 			var s_detail_h = '';
+		</script>
+	</div>
+	<div shiro:hasPermission="system:labourreportmain:sumitinfo">
+		<script type="text/javascript">
+			var s_sumitinfo_h = '';
+		</script>
+	</div>
+	<div shiro:hasPermission="system:labourrepotapprove:labourrepotapprove">
+		<script type="text/javascript">
+			var s_suggest_h = '';
 		</script>
 	</div>
 	</div>

@@ -49,7 +49,7 @@ function validateRule() {
 		},
 		messages : {
 			renderdepart : {
-				required : icon + "请输入填报单位"
+				required : icon + "请输入单位名称"
 			},
 			renderdate : {
 				required : icon + "请输入汇报年月"

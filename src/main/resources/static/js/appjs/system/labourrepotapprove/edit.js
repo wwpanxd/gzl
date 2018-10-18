@@ -11,7 +11,7 @@ function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/system/labourreportmain/update",
+		url : "/system/labourrepotapprove/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -36,19 +36,13 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			renderdepart : {
-				required : true
-			},
-			renderdate : {
+			name : {
 				required : true
 			}
 		},
 		messages : {
-			renderdepart : {
-				required : icon + "请输入单位名称"
-			},
-			renderdate : {
-				required : icon + "请输入汇报年月"
+			name : {
+				required : icon + "请输入名字"
 			}
 		}
 	})

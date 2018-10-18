@@ -16,7 +16,8 @@
 								type="hidden"> <input id="code" name="code"
 								th:value="${labourreportmain.code}" type="hidden">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">单位名称：</label>
+								<label class="col-sm-3 control-label"><em
+									style="color: red; font-style: normal; padding-right: 5px;">*</em>单位名称：</label>
 								<div class="col-sm-8">
 									<input id="renderdepart" name="renderdepart"
 										th:value="${labourreportmain.renderdepart}"
@@ -24,7 +25,8 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">汇报年月：</label>
+								<label class="col-sm-3 control-label"><em
+									style="color: red; font-style: normal; padding-right: 5px;">*</em>汇报年月：</label>
 								<div class="col-sm-8">
 									<input type="text" class="laydate-icon layer-date form-control"
 										id="renderdate" name="renderdate" placeholder="请选择汇报年月"

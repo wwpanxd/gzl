@@ -172,7 +172,9 @@ function load() {
 												+ s_remove_h
 												+ '" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.oid
-												+ '\',\''+row.code+'\')"><i class="fa fa-remove"></i></a> ';
+												+ '\',\''
+												+ row.code
+												+ '\')"><i class="fa fa-remove"></i></a> ';
 										var curCode = row.code;
 										var temp = 0;
 										if (row.status == 0 || row.status == 3)
@@ -192,12 +194,22 @@ function load() {
 												+ '" href="#" title="报表"  mce_href="#" onclick="reportfunc(\''
 												+ curUrl
 												+ '\')"><i class="fa fa fa-tasks"></i></a> ';
-										var d = '<a class="btn btn-warning btn-sm '
-											+ s_remove_h
-											+ '" href="#" title="提交"  mce_href="#" onclick="submitinfo(\''
+										var h = '<a class="btn btn-warning btn-sm '
+												+ s_sumitinfo_h
+												+ '" href="#" title="提交"  mce_href="#" onclick="submitinfo(\''
+												+ row.oid
+												+ '\')"><i class="fa fa-remove"></i></a> ';
+										var i = '<a class="btn btn-warning btn-sm '
+											+ s_suggest_h
+											+ '" href="#" title="审批"  mce_href="#" onclick="approveopt(\''
 											+ row.oid
-											+ '\',\''+row.code+'\')"><i class="fa fa-remove"></i></a> ';
-										return e + d + g;
+											+ '\')"><i class="fa fa-edit"></i></a> ';
+										var j = '<a class="btn btn-warning btn-sm '
+											+ s_suggest_h
+											+ '" href="#" title="审批记录"  mce_href="#" onclick="suggest(\''
+											+ row.oid
+											+ '\')"><i class="fa fa-tasks"></i></a> ';
+										return e + d + g + h+i+j;
 									}
 								} ]
 					});
@@ -206,7 +218,7 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 function add() {
-	var curCode=$("#code").val();
+	var curCode = $("#code").val();
 	layer.open({
 		type : 2,
 		title : '增加',
@@ -237,7 +249,7 @@ function edit(id) {
 		content : prefix + '/edit/' + id // iframe的url
 	});
 }
-function remove(id,code) {
+function remove(id, code) {
 	layer.confirm('确定要删除选中的记录？', {
 		btn : [ '确定', '取消' ]
 	}, function() {
@@ -246,7 +258,7 @@ function remove(id,code) {
 			type : "post",
 			data : {
 				'oid' : id,
-				'Code':code
+				'Code' : code
 			},
 			success : function(r) {
 				if (r.code == 0) {
@@ -296,13 +308,34 @@ function batchRemove() {
 
 	});
 }
-function submitinfo(){
-	/*layer.open({
+function submitinfo(id) {
+	layer.open({
 		type : 2,
 		title : '提交',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/sumitinfo/' + id // iframe的url
-	});*/
+		content : prefix + '/sumitinfo?oid=' + id // iframe的url
+	});
+}
+function suggest(id){
+	layer.open({
+		type : 2,
+		title : '审批记录',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : '/system/labourrepotapprove?foid=' + id // iframe的url
+	});
+}
+
+function approveopt(id){
+	layer.open({
+		type : 2,
+		title : '审批',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '800px', '520px' ],
+		content : prefix + '/approveopt?oid=' + id // iframe的url
+	});
 }
