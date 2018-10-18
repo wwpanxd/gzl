@@ -1,5 +1,4 @@
-
-var prefix = "/system/staff"
+var prefix = "/system/staff";
 $(function() {
 	var deptId = '';
 	getTreeData();

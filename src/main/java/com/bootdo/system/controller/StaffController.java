@@ -116,4 +116,9 @@ public class StaffController {
 		return R.ok();
 	}
 	
+	@GetMapping("/selectView")
+	String selectView(){
+	    return "system/staff/select";
+	}
+	
 }

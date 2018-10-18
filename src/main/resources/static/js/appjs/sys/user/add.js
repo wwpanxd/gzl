@@ -58,9 +58,9 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			name : {
-				required : true
-			},
+//			name : {
+//				required : true
+//			},
 			username : {
 				required : true,
 				minlength : 2,
@@ -84,6 +84,10 @@ function validateRule() {
 				minlength : 6,
 				equalTo : "#password"
 			},
+			deptName : {
+				required : true,
+				deptName : true
+			},
 //			email : {
 //				required : true,
 //				email : true
@@ -96,9 +100,9 @@ function validateRule() {
 		},
 		messages : {
 
-			name : {
-				required : icon + "请输入姓名"
-			},
+//			name : {
+//				required : icon + "请选择人员姓名"
+//			},
 			username : {
 				required : icon + "请输入您的用户名",
 				minlength : icon + "用户名必须两个字符以上",
@@ -113,11 +117,25 @@ function validateRule() {
 				minlength : icon + "密码必须6个字符以上",
 				equalTo : icon + "两次输入的密码不一致"
 			},
-//			email : icon + "请输入您的E-mail",
+			deptName : icon + "请选择所属机构",
 		}
 	})
 }
-
+var openStaff = function(){
+	layer.open({
+		type:2,
+		title:"选择人员",
+		area : [ '700px', '420px' ],
+		content:"/system/staff/selectView"
+	})
+}
+function loadStaffAndDept(staffId,name,deptId,deptName){
+	$("#staffId").val(staffId);
+	$("#name").val(name);
+	$("#deptId").val(deptId);
+	$("#deptName").val(deptName);
+	$("#deptName").attr("disabled","true");
+}
 var openDept = function(){
 	layer.open({
 		type:2,
@@ -126,7 +144,7 @@ var openDept = function(){
 		content:"/system/sysDept/treeView"
 	})
 }
-function loadDept( deptId,deptName){
+function loadDept(deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
 }

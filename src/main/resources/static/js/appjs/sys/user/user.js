@@ -1,4 +1,4 @@
-var prefix = "/sys/user"
+var prefix = "/sys/user";
 $(function() {
 	var deptId = '';
 	getTreeData();
@@ -61,6 +61,10 @@ function load(deptId) {
 						field : 'name',
 						title : '人员姓名'
 					},
+//					{
+//						field : 'deptName', 
+//						title : '单位' 
+//					},
 //					{
 //						field : 'email',
 //						title : '邮箱'
