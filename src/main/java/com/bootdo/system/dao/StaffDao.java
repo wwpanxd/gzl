@@ -29,4 +29,10 @@ public interface StaffDao {
 	int remove(Long staff_id);
 	
 	int batchRemove(Long[] staffIds);
+	
+	int updateUserStaff(StaffDO staff);
+	
+	int deleteUserStaff(Long staff_id);
+	
+	int deleteUserStaffs(Long[] staffIds);
 }

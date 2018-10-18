@@ -148,7 +148,7 @@ public class DeptController extends BaseController {
 	@RequiresPermissions("system:sysDept:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] deptIds) {
 		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
-			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+			return R.error(1, "服务异常,请联系管理员处理");
 		}
 		sysDeptService.batchRemove(deptIds);
 		return R.ok();

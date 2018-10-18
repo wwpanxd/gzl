@@ -80,7 +80,10 @@ public class DeptServiceImpl implements DeptService {
 		// TODO Auto-generated method stub
 		//查询部门以及此部门的下级部门
 		int result = sysDeptMapper.getDeptUserNumber(deptId);
-		return result==0?true:false;
+		if(result>0) return false;
+		int result1 =  sysDeptMapper.getDeptStaffNumber(deptId);
+		if(result1>0) return false;
+		return true;
 	}
 
 }

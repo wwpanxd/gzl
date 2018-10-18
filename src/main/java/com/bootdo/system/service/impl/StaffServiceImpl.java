@@ -41,17 +41,22 @@ public class StaffServiceImpl implements StaffService {
 	
 	@Override
 	public int update(StaffDO staff){
-		return staffDao.update(staff);
+		int n=staffDao.update(staff);
+		staffDao.updateUserStaff(staff);
+		return n;
 	}
 	
 	@Override
 	public int remove(Long staffId){
-		return staffDao.remove(staffId);
+		int n=staffDao.remove(staffId);
+		staffDao.deleteUserStaff(staffId);
+		return n;
 	}
 	
 	@Override
 	public int batchRemove(Long[] staffIds){
-		return staffDao.batchRemove(staffIds);
+		int n=staffDao.batchRemove(staffIds);
+		staffDao.deleteUserStaffs(staffIds);
+		return n;
 	}
-	
 }

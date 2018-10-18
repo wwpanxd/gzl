@@ -79,10 +79,10 @@ function validateRule() {
 				minlength : 6,
 				equalTo : "#password"
 			},
-			email : {
-				required : true,
-				email : true
-			},
+//			email : {
+//				required : true,
+//				email : true
+//			},
 			topic : {
 				required : "#newsletter:checked",
 				minlength : 2
@@ -107,9 +107,24 @@ function validateRule() {
 				minlength : icon + "密码必须6个字符以上",
 				equalTo : icon + "两次输入的密码不一致"
 			},
-			email : icon + "请输入您的E-mail",
+//			email : icon + "请输入您的E-mail",
 		}
 	})
+}
+var openStaff = function(){
+	layer.open({
+		type:2,
+		title:"选择人员",
+		area : [ '700px', '420px' ],
+		content:"/system/staff/selectView"
+	})
+}
+function loadStaffAndDept(staffId,name,deptId,deptName){
+	$("#staffId").val(staffId);
+	$("#name").val(name);
+	$("#deptId").val(deptId);
+	$("#deptName").val(deptName);
+	$("#deptName").attr("disabled","true");
 }
 var openDept = function(){
 	layer.open({

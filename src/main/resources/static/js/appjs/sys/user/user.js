@@ -1,4 +1,4 @@
-var prefix = "/sys/user"
+var prefix = "/sys/user";
 $(function() {
 	var deptId = '';
 	getTreeData();
@@ -35,7 +35,8 @@ function load(deptId) {
 						// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 						limit : params.limit,
 						offset : params.offset,
-						name : $('#searchName').val(),
+						name : $('#searchStaff').val(),
+						username : $('#searchUser').val(),
 						deptId : deptId
 					};
 				},
@@ -61,6 +62,10 @@ function load(deptId) {
 						field : 'name',
 						title : '人员姓名'
 					},
+//					{
+//						field : 'deptName', 
+//						title : '单位' 
+//					},
 //					{
 //						field : 'email',
 //						title : '邮箱'

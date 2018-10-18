@@ -22,9 +22,7 @@ import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 
 /**
- * 
- * 
- * @author chglee
+ * @author wwpan
  * @email 1992lcg@163.com
  * @date 2018-10-16 10:36:57
  */
@@ -114,6 +112,11 @@ public class StaffController {
 	public R remove(@RequestParam("ids[]") Long[] staffIds){
 		staffService.batchRemove(staffIds);
 		return R.ok();
+	}
+	
+	@GetMapping("/selectView")
+	String selectView(){
+	    return "system/staff/select";
 	}
 	
 }

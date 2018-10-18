@@ -33,4 +33,6 @@ public interface DeptDao {
 	Long[] listParentDept();
 	
 	int getDeptUserNumber(Long deptId);
+	
+	int getDeptStaffNumber(Long deptId);
 }
