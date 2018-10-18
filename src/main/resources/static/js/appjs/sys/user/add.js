@@ -1,7 +1,9 @@
-$().ready(function() {
+//$().ready(function() {
+//	validateRule();
+//});
+$(function() {
 	validateRule();
 });
-
 $.validator.setDefaults({
 	submitHandler : function() {
 		save();
@@ -79,24 +81,24 @@ function validateRule() {
 				required : true,
 				minlength : 6
 			},
-			confirm_password : {
-				required : true,
-				minlength : 6,
-				equalTo : "#password"
-			},
+//			confirm_password : {
+//				required : true,
+//				minlength : 6,
+//				equalTo : "#password"
+//			},
 			deptName : {
 				required : true,
 				deptName : true
-			},
+			}
 //			email : {
 //				required : true,
 //				email : true
 //			},
-			topic : {
-				required : "#newsletter:checked",
-				minlength : 2
-			},
-			agree : "required"
+//			topic : {
+//				required : "#newsletter:checked",
+//				minlength : 2
+//			},
+//			agree : "required"
 		},
 		messages : {
 
@@ -112,12 +114,14 @@ function validateRule() {
 				required : icon + "请输入您的密码",
 				minlength : icon + "密码必须6个字符以上"
 			},
-			confirm_password : {
-				required : icon + "请再次输入密码",
-				minlength : icon + "密码必须6个字符以上",
-				equalTo : icon + "两次输入的密码不一致"
-			},
-			deptName : icon + "请选择所属机构",
+//			confirm_password : {
+//				required : icon + "请再次输入密码",
+//				minlength : icon + "密码必须6个字符以上",
+//				equalTo : icon + "两次输入的密码不一致"
+//			},
+			deptName : {
+				required : icon + "请选择所属机构"
+			}
 		}
 	})
 }
@@ -147,5 +151,6 @@ var openDept = function(){
 function loadDept(deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
+	$("#deptName").attr("disabled","true");
 }
 
