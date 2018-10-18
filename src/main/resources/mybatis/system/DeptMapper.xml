@@ -97,4 +97,8 @@
     <select id="getDeptUserNumber" resultType="int">
 		select count(*) from sys_user where dept_id = #{value}
 	</select>
+	
+	<select id="getDeptStaffNumber" resultType="int">
+		select count(*) from sys_staff where dept_id = #{value}
+	</select>
 </mapper>

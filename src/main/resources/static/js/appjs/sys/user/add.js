@@ -9,7 +9,7 @@ $.validator.setDefaults({
 });
 $("#pd_checkbox").on("change",function(){
     if ($("#pd_checkbox").is(':checked')) {
-   	 $("#password").val("123456");
+   	 $("#password").val("111111");
    	 $("#password").attr("readonly","readonly");
     }else{
   	 $("#password").val("");

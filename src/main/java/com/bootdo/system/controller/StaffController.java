@@ -22,9 +22,7 @@ import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
 
 /**
- * 
- * 
- * @author chglee
+ * @author wwpan
  * @email 1992lcg@163.com
  * @date 2018-10-16 10:36:57
  */

@@ -101,4 +101,23 @@
 		</foreach>
 	</delete>
 
+	<update id="updateUserStaff" parameterType="com.bootdo.system.domain.StaffDO">
+		update sys_user 
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="deptId != null">`dept_id` = #{deptId} </if>
+		</set>
+		where staff_id = #{staffId}
+	</update>
+	
+	<update id="deleteUserStaff">
+		update sys_user set name=null,staff_id=null,status=0 where staff_id = #{value}
+	</update>
+	
+	<update id="deleteUserStaffs">
+		update sys_user set name=null,staff_id=null,status=0 where staff_id in 
+		<foreach item="staffId" collection="array" open="(" separator="," close=")">
+			#{staffId}
+		</foreach>
+	</update>
 </mapper>
