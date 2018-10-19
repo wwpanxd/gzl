@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="list" resultType="com.bootdo.system.domain.LabourrepotapproveDO">
-		select l.`oid`,l.`foid`,l.`content`,l.`Status`,l.`UptTime`,l.`Ext1`,l.`Ext2`,l.`Ext3`,u.name as UptUser from labourrepotapprove l,sys_user u 
+		select l.`oid`,l.`foid`,l.`content`,l.`Status`,l.`UptTime`,l.`Ext1`,l.`Ext2`,l.`Ext3`,case when u.name='' or ISNULL(u.`name`) then u.username else u.name end as UptUser from labourrepotapprove l,sys_user u 
         <where>  
 		  		  <if test="oid != null and oid != ''"> and oid = #{oid} </if>
 		  		  <if test="foid != null and foid != ''"> and foid = #{foid} </if>

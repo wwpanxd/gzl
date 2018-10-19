@@ -14,7 +14,12 @@
 		  		  <if test="code != null and code != ''"> and Code = #{code} </if>
 		  		  <if test="renderdepart != null and renderdepart != ''"> and RenderDepart LIKE CONCAT(#{renderdepart},'%') </if>
 		  		  <if test="renderdate != null and renderdate != ''"> and DATE_FORMAT(RenderDate,'%Y%m') = DATE_FORMAT(#{renderdate},'%Y%m') </if>
-		  		  <if test="status != null and status != ''"> and Status = #{status} </if>
+		  		  <!-- <if test="status != null and status != ''"> and Status = #{status} </if> -->
+		  		  <if test="status != null and status != ''"> 
+						<if test="status==5"></if>
+						<if test="status==6">and Status >= 1</if>
+						<if test="status==-1"> and Status = #{status} </if>
+				  </if>
 		  		  <if test="mineleader != null and mineleader != ''"> and MineLeader = #{mineleader} </if>
 		  		  <if test="businessleader != null and businessleader != ''"> and BusinessLeader = #{businessleader} </if>
 		  		  <if test="edituser != null and edituser != ''"> and EditUser = #{edituser} </if>
@@ -46,7 +51,12 @@
 		  		  <if test="code != null and code != ''"> and Code = #{code} </if>
 		  		  <if test="renderdepart != null and renderdepart != ''"> and RenderDepart LIKE CONCAT(#{renderdepart},'%') </if>
 		  		  <if test="renderdate != null and renderdate != ''"> and DATE_FORMAT(RenderDate,'%Y%m') = DATE_FORMAT(#{renderdate},'%Y%m') </if>
-		  		  <if test="status != null and status != ''"> and Status = #{status} </if>
+		  		  <!-- <if test="status != null and status != ''"> and Status = #{status} </if> -->
+		  		  <if test="status != null and status != ''"> 
+						<if test="status==5"></if>
+						<if test="status==6">and Status >= 1</if>
+						<if test="status==-1"> and Status = #{status} </if>
+				  </if>
 		  		  <if test="mineleader != null and mineleader != ''"> and MineLeader = #{mineleader} </if>
 		  		  <if test="businessleader != null and businessleader != ''"> and BusinessLeader = #{businessleader} </if>
 		  		  <if test="edituser != null and edituser != ''"> and EditUser = #{edituser} </if>

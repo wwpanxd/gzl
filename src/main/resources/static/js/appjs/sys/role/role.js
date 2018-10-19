@@ -53,7 +53,7 @@ function load() {
 								{
 									title : '操作',
 									field : 'id',
-									align : 'center',
+									align : 'left',
 									formatter : function(value, row, index) {
 										var c = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="成员" onclick="ulist(\''
 												+ row.roleId + '\''+','+'\''
@@ -62,6 +62,8 @@ function load() {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.roleId
 												+ '\')"><i class="fa fa-edit"></i></a> ';
+										if(row.roleId<10)
+											s_remove_h='hidden';
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.roleId
 												+ '\')"><i class="fa fa-remove"></i></a> ';

@@ -1,7 +1,9 @@
 package com.bootdo.common.controller;
 
-import com.bootdo.system.domain.UserToken;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.system.domain.UserDO;
 

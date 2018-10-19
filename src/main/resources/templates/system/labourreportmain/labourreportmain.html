@@ -14,6 +14,8 @@
 						<div class="columns pull-left">
 							<input id="code"
 										name="code" th:value="${Code}" class="form-control" type="hidden">
+										<input id="status"
+										name="status" th:value="${Status}" class="form-control" type="hidden">
 							<button shiro:hasPermission="system:labourreportmain:add"
 								type="button" class="btn  btn-primary" onclick="add()">
 								<i class="fa fa-plus" aria-hidden="true"></i>添加
@@ -56,6 +58,7 @@
 			var s_detail_h = 'hidden';
 			var s_sumitinfo_h = 'hidden';
 			var s_suggest_h = 'hidden';
+			var s_approve_h = 'hidden';
 		</script>
 	</div>
 	<div shiro:hasPermission="system:labourreportmain:edit">
@@ -78,9 +81,14 @@
 			var s_sumitinfo_h = '';
 		</script>
 	</div>
-	<div shiro:hasPermission="system:labourrepotapprove:labourrepotapprove">
+	<div shiro:hasPermission="system:labourreportmain:approve">
 		<script type="text/javascript">
 			var s_suggest_h = '';
+		</script>
+	</div>
+	<div shiro:hasPermission="system:labourrepotapprove:labourrepotapprove">
+		<script type="text/javascript">
+			var s_approve_h = '';
 		</script>
 	</div>
 	</div>

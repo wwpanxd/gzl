@@ -14,7 +14,7 @@ function load() {
 						// showColumns : true,
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
-						striped : true, // 设置为true会有隔行变色效果
+						striped : false, // 设置为true会有隔行变色效果
 						dataType : "json", // 服务器返回的数据类型
 						pagination : true, // 设置为true会在底部显示分页条
 						// queryParamsType : "limit",
@@ -39,7 +39,8 @@ function load() {
 										.val()
 										+ '-01',
 								renderdepart : $('#renderdepart').val(),
-								code : $("#code").val()
+								code : $("#code").val(),
+								status : $("#status").val()
 							};
 						},
 						// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
@@ -161,8 +162,32 @@ function load() {
 								{
 									title : '操作',
 									field : 'id',
-									align : 'center',
+									align : 'left',
 									formatter : function(value, row, index) {
+										var curCode = row.code;
+										var rol = $("#status").val();
+										var temp = 0;
+										var checksubmit = '';
+										if (row.status == 1 || row.status == 2)
+											checksubmit = 'hidden';
+										var checkapprove = '';
+										if (row.status != 1)
+											checkapprove = 'hidden';
+										var approverecord = '';
+										if (row.status == 0)
+											approverecord = 'hidden';
+										if (rol == '5') {
+											if (row.status == 0
+													|| row.status == 3)
+												temp = 1;
+											checkapprove = 'hidden';
+										} else if (rol == '6') {
+											if (row.status == 1)
+												temp = 1;
+											checksubmit = 'hidden';
+											s_remove_h = 'hidden';
+										}
+
 										var e = '<a class="btn btn-primary btn-sm '
 												+ s_edit_h
 												+ '" href="#" mce_href="#" title="编辑" onclick="edit(\''
@@ -175,41 +200,38 @@ function load() {
 												+ '\',\''
 												+ row.code
 												+ '\')"><i class="fa fa-remove"></i></a> ';
-										var curCode = row.code;
-										var temp = 0;
-										if (row.status == 0 || row.status == 3)
-											temp = 1;
 										var curUrl = "http://localhost:7878/jsDemo/reportJsp/showReport.jsp?raq="
 												+ curCode
 												+ "&moid="
 												+ row.oid
 												+ "&IsWrite=" + temp;
-										var f = '<a class="btn btn-success btn-sm '
-												+ s_detail_h
-												+ '" href="'
-												+ curUrl
-												+ '" title="报表"  mce_href="#" ><i class="fa fa-tasks"></i></a> ';
 										var g = '<a class="btn btn-warning btn-sm '
-												+ s_remove_h
+												+ s_detail_h
 												+ '" href="#" title="报表"  mce_href="#" onclick="reportfunc(\''
 												+ curUrl
 												+ '\')"><i class="fa fa fa-tasks"></i></a> ';
 										var h = '<a class="btn btn-warning btn-sm '
 												+ s_sumitinfo_h
+												+ ' '
+												+ checksubmit
 												+ '" href="#" title="提交"  mce_href="#" onclick="submitinfo(\''
 												+ row.oid
-												+ '\')"><i class="fa fa-remove"></i></a> ';
+												+ '\')"><i class="fa fa-check-square-o"></i></a> ';
 										var i = '<a class="btn btn-warning btn-sm '
-											+ s_suggest_h
-											+ '" href="#" title="审批"  mce_href="#" onclick="approveopt(\''
-											+ row.oid
-											+ '\')"><i class="fa fa-edit"></i></a> ';
+												+ s_suggest_h
+												+ ' '
+												+ checkapprove
+												+ '" href="#" title="审批"  mce_href="#" onclick="approveopt(\''
+												+ row.oid
+												+ '\')"><i class="fa fa-anchor"></i></a> ';
 										var j = '<a class="btn btn-warning btn-sm '
-											+ s_suggest_h
-											+ '" href="#" title="审批记录"  mce_href="#" onclick="suggest(\''
-											+ row.oid
-											+ '\')"><i class="fa fa-tasks"></i></a> ';
-										return e + d + g + h+i+j;
+												+ s_approve_h
+												+ ' '
+												+ approverecord
+												+ '" href="#" title="审批记录"  mce_href="#" onclick="suggest(\''
+												+ row.oid
+												+ '\')"><i class="fa fa-envelope-o"></i></a> ';
+										return e + d + g + h + i + j;
 									}
 								} ]
 					});
@@ -318,7 +340,7 @@ function submitinfo(id) {
 		content : prefix + '/sumitinfo?oid=' + id // iframe的url
 	});
 }
-function suggest(id){
+function suggest(id) {
 	layer.open({
 		type : 2,
 		title : '审批记录',
@@ -329,7 +351,7 @@ function suggest(id){
 	});
 }
 
-function approveopt(id){
+function approveopt(id) {
 	layer.open({
 		type : 2,
 		title : '审批',
