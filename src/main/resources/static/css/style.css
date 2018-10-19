@@ -1,11 +1,11 @@
 /*
  *
- *   H+ - 后台主题UI框架
+ *   H+ - 鍚庡彴涓婚UI妗嗘灦
  *   version 4.0
- *   修改记录
- *	 .checkbox-inline input[type=checkbox] 去掉margin-top:-4px
- *	 .checkbox-inline 添加font-size: 14px;默认是13px
- *   .onoffswitch-inner:before,    ;   /* height: 16px; 两处
+ *   淇敼璁板綍
+ *	 .checkbox-inline input[type=checkbox] 鍘绘帀margin-top:-4px
+ *	 .checkbox-inline 娣诲姞font-size: 14px;榛樿鏄�13px
+ *   .onoffswitch-inner:before,    ;   /* height: 16px; 涓ゅ
  *
  *	.file-control {
  *  	color: inherit;
@@ -196,7 +196,11 @@ body.body-small .navbar-top-links li:last-child {
 }
 
 .nav-header {
-    padding: 33px 25px;
+/*     padding: 33px 25px; */
+    padding-top: 33px;
+    padding-right: 25px;
+    padding-bottom: 5px;
+    padding-left: 25px;
     background: url("patterns/header-profile.png") no-repeat;
 }
 
@@ -490,7 +494,7 @@ body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
 /*border-radius: 2px;*/
 /*}*/
 
-/*伸缩菜单*/
+/*浼哥缉鑿滃崟*/
 .fixed-sidebar.mini-navbar .nav li:hover>a> span.nav-label {
     top: 0px;
     padding: 10px 10px 10px 10px;
@@ -513,7 +517,7 @@ body.body-small.fixed-sidebar.mini-navbar .navbar-static-side {
     min-width: 140px;
     border-radius: 2px;
 }
-/*伸缩菜单结束*/
+/*浼哥缉鑿滃崟缁撴潫*/
 
 body.fixed-sidebar.mini-navbar .navbar-default .nav>li>.nav-second-level li a {
     font-size: 12px;
@@ -3341,11 +3345,11 @@ nav.page-tabs .page-tabs-content {
 }
 
 .roll-right.J_tabRight {
-    right: 140px;
+    right: 80px;
 }
 
 .roll-right.btn-group {
-    right: 60px;
+/*     right: 60px; */
     width: 80px;
     padding: 0;
 }
@@ -6678,7 +6682,7 @@ body.rtls .top-navigation .footer.fixed, body.rtls.top-navigation .footer.fixed 
 }
 /*
  *
- *   SKIN 1 - H+ - 后台主题UI框架
+ *   SKIN 1 - H+ - 鍚庡彴涓婚UI妗嗘灦
  *   NAME - Blue light
  *
 */
@@ -6821,7 +6825,7 @@ body.skin-1 {
 }
 /*
  *
- *   SKIN 3 - H+ - 后台主题UI框架
+ *   SKIN 3 - H+ - 鍚庡彴涓婚UI妗嗘灦
  *   NAME - Yellow/purple
  *
 */
@@ -7357,7 +7361,7 @@ body.skin-3 {
     padding:0;
 }
 
-/*编辑器按钮样式冲突*/
+/*缂栬緫鍣ㄦ寜閽牱寮忓啿绐�*/
 .note-editor .btn-default {
     color: #333333!important;
     background-color: #ffffff!important;

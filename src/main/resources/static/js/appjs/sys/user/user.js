@@ -40,19 +40,14 @@ function load(deptId) {
 						deptId : deptId
 					};
 				},
-				// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
-				// queryParamsType = 'limit' ,返回参数必须包含
-				// limit, offset, search, sort, order 否则, 需要包含:
-				// pageSize, pageNumber, searchText, sortName,
-				// sortOrder.
-				// 返回false将会终止请求
 				columns : [
 					{
 						checkbox : true
 					},
 					{
 						field : 'userId', // 列字段名
-						title : '序号' // 列标题
+						title : '序号', // 列标题
+						visible: false
 					},
 					{
 						field : 'username',

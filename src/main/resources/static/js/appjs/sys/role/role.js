@@ -33,14 +33,14 @@ function load() {
 						// sortOrder.
 						// 返回false将会终止请求
 						columns : [
-								{ // 列配置项
+								{ 
 									// 数据类型，详细参数配置参见文档http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
 									checkbox : true
-								// 列表中显示复选框
 								},
 								{
 									field : 'roleId', // 列字段名
-									title : '序号' // 列标题
+									title : '序号', // 列标题
+									visible : false
 								},
 								{
 									field : 'roleName',
@@ -50,13 +50,9 @@ function load() {
 									field : 'remark',
 									title : '备注'
 								},
-//								{
-//									field : '',
-//									title : '权限'
-//								},
 								{
 									title : '操作',
-									field : 'roleId',
+									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
 										var c = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="成员" onclick="ulist(\''
