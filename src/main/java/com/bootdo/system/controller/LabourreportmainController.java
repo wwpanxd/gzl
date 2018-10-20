@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -164,7 +165,8 @@ public class LabourreportmainController extends BaseController {
 
 	@ResponseBody
 	@PostMapping("/saveapprove")
-	@RequiresPermissions("system:labourreportmain:sumitinfo")
+	@RequiresPermissions(value = { "system:labourreportmain:sumitinfo",
+			"system:labourreportmain:approve" }, logical = Logical.OR)
 	public R saveapprove(String oid, Integer status, String remark, Model model) {
 		LabourreportmainDO labourreportmain = new LabourreportmainDO();
 		labourreportmain.setOid(oid);
@@ -198,10 +200,10 @@ public class LabourreportmainController extends BaseController {
 		Long a = Long.valueOf(5);
 		Long b = Long.valueOf(6);
 		if (list.contains(a)) {
-			return 5; //null
+			return 5; // null
 		}
 		if (list.contains(b)) {
-			return 6; //1
+			return 6; // 1
 		}
 		return result;
 	}
