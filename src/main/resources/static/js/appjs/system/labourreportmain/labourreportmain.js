@@ -163,6 +163,7 @@ function load() {
 									title : '操作',
 									field : 'id',
 									align : 'left',
+									halign:'center',
 									formatter : function(value, row, index) {
 										var curCode = row.code;
 										var rol = $("#status").val();

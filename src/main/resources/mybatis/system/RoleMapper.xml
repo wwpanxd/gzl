@@ -27,7 +27,7 @@
 				order by ${sort} ${order}
 			</when>
 			<otherwise>
-				order by role_id desc
+				order by role_id
 			</otherwise>
 		</choose>
 		<if test="offset != null and limit != null">
