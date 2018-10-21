@@ -104,6 +104,6 @@ function add() {
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '750px', '480px' ],
-		content : prefix + '/add' // iframe的url
+		content : prefix + '/add/'+ $("#roleId").val()// iframe的url
 	});
 }

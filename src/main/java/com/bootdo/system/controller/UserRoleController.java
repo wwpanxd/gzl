@@ -1,5 +1,6 @@
 package com.bootdo.system.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bootdo.common.annotation.Log;
+import com.bootdo.common.config.Constant;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -32,8 +34,6 @@ public class UserRoleController extends BaseController{
 	@Autowired
 	UserRoleService userroleservice;
 
-//	@Autowired
-//	RoleService roleService;
 	
 //	@RequiresPermissions("sys:role:userlist")
 	@GetMapping()
@@ -74,19 +74,39 @@ public class UserRoleController extends BaseController{
 	
 //	@RequiresPermissions("sys:user:add")
 	@Log("添加角色成员")
-	@GetMapping("/add")
-	String add(Model model) {
-
+	@GetMapping("/add/{id}")
+	String add(Model model,@PathVariable("id") String id) {
+		model.addAttribute("roleId", id);
 		return prefix + "/addUsers";
 	}
 	
-	@GetMapping("/addToRole")
-	String addtorole() {
-		return "";
+	@ResponseBody()
+	@PostMapping("/addToRole")
+	R addtorole(Long id,Long roleId) {
+		UserRoleDO userRole = new UserRoleDO();
+		userRole.setRoleId(roleId);
+		userRole.setUserId(id);
+		if (userroleservice.save(userRole) > 0) {
+			return R.ok();
+		}
+		return R.error();
 	}
 	
-	@GetMapping("/batchAddToRole")
-	String batchAddToRole() {
-		return "";
+	@ResponseBody()
+	@PostMapping("/batchAddToRole")
+	R batchAddToRole(@RequestParam("ids[]") Long[] userIds,Long roleId) {
+		List<UserRoleDO> list = new ArrayList<UserRoleDO>();
+		for(int i=0;i<userIds.length;i++) {
+			UserRoleDO userRole = new UserRoleDO();
+			userRole.setRoleId(roleId);
+			userRole.setUserId(userIds[i]);
+			list.add(userRole);
+		}
+		int r = userroleservice.batchSave(list);
+		if (r > 0) {
+			return R.ok();
+		}
+		return R.error();
 	}
+	
 }

@@ -39,6 +39,18 @@ public class UserRoleServiceImpl implements UserRoleService{
 		// TODO Auto-generated method stub
 		return userRoleMapper.removeByRoleId(roleId);
 	}
+
+	@Override
+	public int save(UserRoleDO userRole) {
+		// TODO Auto-generated method stub
+		return userRoleMapper.save(userRole);
+	}
+
+	@Override
+	public int batchSave(List<UserRoleDO> list) {
+		// TODO Auto-generated method stub
+		return userRoleMapper.batchSave(list);
+	}
     
     
 }

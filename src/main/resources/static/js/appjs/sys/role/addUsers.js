@@ -1,7 +1,9 @@
 var prefix = "/sys/user";
 $(function() {
+	var roleId = '';
+	roleId=$("#roleId").val();
 	var deptId = '';
-	getTreeData();
+//	getTreeData();	
 	load(deptId);
 });
 
@@ -93,12 +95,13 @@ function selected(id) {
 			url : "/sys/roleuser/addToRole",
 			type : "post",
 			data : {
-				'id' : id
+				'id' : id,
+				'roleId': $("#roleId").val()
 			},
 			success : function(r) {
 				if (r.code == 0) {
 					layer.msg(r.msg);
-					reLoad();
+					reloadRoleMembers();
 				} else {
 					layer.msg(r.msg);
 				}
@@ -125,13 +128,14 @@ function batchSelected() {
 		$.ajax({
 			type : 'POST',
 			data : {
-				"ids" : ids
+				"ids" : ids,
+				'roleId': $("#roleId").val()
 			},
 			url : '/sys/roleuser/batchAddToRole',
 			success : function(r) {
 				if (r.code == 0) {
 					layer.msg(r.msg);
-					reLoad();
+					reloadRoleMembers();
 				} else {
 					layer.msg(r.msg);
 				}
@@ -173,5 +177,9 @@ $('#jstree').on("changed.jstree", function(e, data) {
 		}
 		$('#exampleTable').bootstrapTable('refresh',opt);
 	}
-
 });
+function reloadRoleMembers() {
+	parent.reLoad();
+	var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
+	parent.layer.close(index);
+}

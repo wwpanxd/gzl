@@ -16,7 +16,7 @@ public interface UserRoleService {
 
 //	int count(Map<String, Object> map);
 //
-//	int save(UserRoleDO userRole);
+	int save(UserRoleDO userRole);
 //
 //	int update(UserRoleDO userRole);
 //
@@ -30,7 +30,7 @@ public interface UserRoleService {
 
 	int removeByRoleId(Long roleId);
 //
-//	int batchSave(List<UserRoleDO> list);
+	int batchSave(List<UserRoleDO> list);
 //
 //	int batchRemoveByUserId(Long[] ids);
 	
