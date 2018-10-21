@@ -119,6 +119,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean exit2(Map<String, Object> params) {
+        int count=0;
+        count = userMapper.count2(params);
+        if(count>0)
+        return true;
+        else return false;
+    }
+    @Override
     public Set<String> listRoles(Long userId) {
         return null;
     }

@@ -50,11 +50,17 @@ function validateRule() {
 		rules : {
 			name : {
 				required : true
+			},
+			deptName : {
+				required : true
 			}
 		},
 		messages : {
 			name : {
 				required : icon + "请输入姓名"
+			},
+			deptName : {
+				required : icon + "请选择所属机构"
 			}
 		}
 	})

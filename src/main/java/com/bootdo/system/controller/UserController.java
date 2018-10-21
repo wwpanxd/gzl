@@ -149,6 +149,12 @@ public class UserController extends BaseController {
 		return !userService.exit(params);
 	}
 
+	@PostMapping("/exit2")
+	@ResponseBody
+	boolean exit2(@RequestParam Map<String, Object> params) {
+		// 存在，不通过，false
+		return !userService.exit2(params);
+	}
 	@RequiresPermissions("sys:user:resetPwd")
 	@Log("请求更改用户密码")
 	@GetMapping("/resetPwd/{id}")

@@ -71,4 +71,22 @@ public class UserRoleController extends BaseController{
 			return R.error(1, "删除失败");
 		}
 	}
+	
+//	@RequiresPermissions("sys:user:add")
+	@Log("添加角色成员")
+	@GetMapping("/add")
+	String add(Model model) {
+
+		return prefix + "/addUsers";
+	}
+	
+	@GetMapping("/addToRole")
+	String addtorole() {
+		return "";
+	}
+	
+	@GetMapping("/batchAddToRole")
+	String batchAddToRole() {
+		return "";
+	}
 }

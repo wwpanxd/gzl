@@ -22,6 +22,8 @@ public interface UserDao {
 	
 	int count(Map<String,Object> map);
 	
+	int count2(Map<String,Object> map);
+	
 	int save(UserDO user);
 	
 	int update(UserDO user);

@@ -29,6 +29,8 @@ public interface UserService {
 	int batchremove(Long[] userIds);
 
 	boolean exit(Map<String, Object> params);
+	
+	boolean exit2(Map<String, Object> params);
 
 	Set<String> listRoles(Long userId);
 

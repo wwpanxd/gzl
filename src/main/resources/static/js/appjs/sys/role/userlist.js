@@ -98,5 +98,12 @@ function remove(id) {
 }
 function add() {
 	// iframe层
-	
+	layer.open({
+		type : 2,
+		title : '添加角色成员',
+		maxmin : true,
+		shadeClose : false, // 点击遮罩关闭层
+		area : [ '750px', '480px' ],
+		content : prefix + '/add' // iframe的url
+	});
 }
