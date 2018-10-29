@@ -1,9 +1,12 @@
 $().ready(function() {
 	validateRule();
 
-	laydate({
-        elem : '#renderdate'
-    });
+	laydate.render({
+		elem : '#renderdate',
+		type : 'month',
+		trigger : 'click',
+		format:'yyyy-MM'
+	});
 });
 
 $.validator.setDefaults({
@@ -56,4 +59,17 @@ function validateRule() {
 			}
 		}
 	})
+}
+
+var openDept = function() {
+	layer.open({
+		type : 2,
+		title : "选择部门",
+		area : [ '300px', '450px' ],
+		content : "/system/sysDept/treeView"
+	})
+}
+function loadDept(deptId, deptName) {
+	$("#ext1").val(deptId);
+	$("#renderdepart").val(deptName);
 }

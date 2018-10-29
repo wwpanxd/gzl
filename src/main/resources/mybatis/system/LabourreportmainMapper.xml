@@ -142,7 +142,7 @@
 	</delete>
 	
 	<select id="getPkey"  statementType="CALLABLE" parameterType="com.bootdo.system.domain.LabourreportmainDO" resultType="java.lang.String">
-        SELECT funcReportDetail(#{renderdate},#{renderdepart},#{code},#{uptuser},#{remark})
+        SELECT funcReportDetail(#{renderdate},#{renderdepart},#{code},#{uptuser},#{remark},#{ext1})
     </select>
     <select id="delPkey" statementType="CALLABLE" resultType="java.lang.String">
         SELECT funcReportDel(#{oid},#{code})

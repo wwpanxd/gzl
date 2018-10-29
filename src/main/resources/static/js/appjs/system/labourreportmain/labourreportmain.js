@@ -164,7 +164,7 @@ function load() {
 									title : '操作',
 									field : 'id',
 									align : 'left',
-									halign:'center',
+									halign : 'center',
 									formatter : function(value, row, index) {
 										var curCode = row.code;
 										var rol = $("#status").val();
@@ -206,6 +206,10 @@ function load() {
 												+ curCode
 												+ "&moid="
 												+ row.oid
+												+ "&cdate="
+												+ row.renderdate
+												+ "&cdepart="
+												+ row.ext1
 												+ "&IsWrite=" + temp;
 										var g = '<a class="btn btn-warning btn-sm '
 												+ s_detail_h

@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <head th:include="include :: header">
 <link rel="stylesheet"
-	href="/js/plugins/layer/laydate/skins/default/laydate.css" />
+	href="/js/plugins/laydate5.9/theme/default/laydate.css" />
 </head>
 <body class="gray-bg">
 	<div class="wrapper wrapper-content ">
@@ -19,9 +19,15 @@
 								<label class="col-sm-3 control-label"><em
 									style="color: red; font-style: normal; padding-right: 5px;">*</em>单位名称：</label>
 								<div class="col-sm-8">
-									<input id="renderdepart" name="renderdepart"
+									<!-- <input id="renderdepart" name="renderdepart"
 										th:value="${labourreportmain.renderdepart}"
-										class="form-control" type="text">
+										class="form-control" type="text"> -->
+									<input id="ext1" name="ext1" class="hidden"
+										th:value="${labourreportmain.ext1}"> <input
+										id="renderdepart" name="renderdepart" class="form-control"
+										type="text" style="cursor: pointer;" onclick="openDept()"
+										readonly="readonly" placeholder="所属部门"
+										th:value="${labourreportmain.renderdepart}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -30,8 +36,7 @@
 								<div class="col-sm-8">
 									<input type="text" class="laydate-icon layer-date form-control"
 										id="renderdate" name="renderdate" placeholder="请选择汇报年月"
-										onclick="laydate({istime: false, format: 'YYYY-MM'})"
-										th:value="${labourreportmain.renderdate}"
+										th:value="${labourreportmain.renderdate}==null?null:${#dates.format(labourreportmain.renderdate,'yyyy-MM')}"
 										style="background-color: #fff;" readonly="readonly" />
 								</div>
 							</div>
@@ -55,7 +60,7 @@
 	</div>
 	<div th:include="include::footer"></div>
 	<script type="text/javascript"
-		src="/js/plugins/layer/laydate/laydate.js"></script>
+		src="/js/plugins/laydate5.9/laydate.js"></script>
 	<script type="text/javascript"
 		src="/js/appjs/system/labourreportmain/edit.js">
 		
