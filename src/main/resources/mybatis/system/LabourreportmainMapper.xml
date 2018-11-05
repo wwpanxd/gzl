@@ -147,4 +147,18 @@
     <select id="delPkey" statementType="CALLABLE" resultType="java.lang.String">
         SELECT funcReportDel(#{oid},#{code})
     </select>
+    
+   <insert id="initPkey" parameterType="com.bootdo.system.domain.LabourreportmainDO">
+   	    
+    INSERT INTO labourrepotdetail5
+    (
+    `foid`,
+    `code`,
+    `ptime`,
+    `UptUser`
+    ) 
+    SELECT #{oid},name,#{renderdate},#{uptuser} FROM sys_dict WHERE sys_dict.type = #{code}
+
+	</insert>
+
 </mapper>

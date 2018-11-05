@@ -80,6 +80,7 @@ function load() {
 						offset : params.offset,
 						// name:$('#searchName').val(),
 						type : $('#searchName').val(),
+						sort : 1,
 					};
 				},
 				// //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
@@ -102,8 +103,8 @@ function load() {
 					},
 					{
 						field : 'value',
-						title : '数据值',
-						width : '100px'
+						title : '数据值'
+//						width : '100px'
 					},
 					{
 						field : 'type',

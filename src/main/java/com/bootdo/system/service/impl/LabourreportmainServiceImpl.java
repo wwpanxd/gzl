@@ -59,4 +59,10 @@ public class LabourreportmainServiceImpl implements LabourreportmainService {
 	public String delPkey(Map<String, Object> map) {
 		return labourreportmainDao.delPkey(map);
 	}
+
+	@Override
+	public int initPkey(LabourreportmainDO labourreportmain) {
+		// TODO Auto-generated method stub
+		return labourreportmainDao.initPkey(labourreportmain);
+	}
 }

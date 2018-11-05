@@ -33,4 +33,6 @@ public interface LabourreportmainDao {
 	String getPkey(LabourreportmainDO labourreportmain);
 	
 	String delPkey(Map<String,Object> map);
+	
+	int initPkey(LabourreportmainDO labourreportmain);
 }

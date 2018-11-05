@@ -98,6 +98,14 @@ public class LabourreportmainController extends BaseController {
 			labourreportmain.setRenderdate(labourreportmain.getRenderdate()
 					+ "-01");
 		labourreportmain.setUptuser(uid.toString());
+		labourreportmain.setOid(StringUtils.replace(UUID.randomUUID().toString(), "-", ""));
+		if(labourreportmain.getCode().equals("10005"))
+		{
+			if( labourreportmainService.save(labourreportmain)<1) return R.error();
+			if (labourreportmainService.initPkey(labourreportmain)<1) return R.error();
+			return R.ok();
+		}
+		
 		String pkey = labourreportmainService.getPkey(labourreportmain);
 		if (!StringUtils.isEmpty(pkey)) {
 			return R.ok();
